@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init
+  labels:
+    app: init
+  annotations:
+    pod.alpha.kubernetes.io/init-containers: '[
+        {
+            "name": "download",
+            "image": "axeclbr/git",
+            "command": [
+                "git",
+                "clone",
+                "https://github.com/mdn/beginner-html-site-scripted",
+                "/var/lib/data"
+            ],
+            "volumeMounts": [
+                {
+                    "mountPath": "/var/lib/data",
+                    "name": "git"
+                }
+            ]
+        }
+    ]'
+spec:
+  containers:
+  - name: run
+    image: docker.io/centos/httpd
+    ports:
+      - containerPort: 80
+    volumeMounts:
+    - mountPath: /var/www/html
+      name: git
+  volumes:
+  - emptyDir: {}
+    name: git

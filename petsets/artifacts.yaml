@@ -1,0 +1,37 @@
+# Headless service to provide DNS lookup
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: httpd
+  name: httpd
+spec:
+  clusterIP: None
+  ports:
+    - port: 80
+  selector:
+    app: httpd
+----
+# new API name
+apiVersion: "apps/v1alpha1"
+kind: PetSet
+metadata:
+  name: httpd
+spec:
+  serviceName: httpd
+  replicas: 3
+  template:
+    metadata:
+      annotations:
+        pod.alpha.kubernetes.io/initialized: "true"
+      labels:
+        app: httpd
+    spec:
+      # just as other component in Kubernetes one
+      # or more containers are deployed
+      containers:
+      - name: httpd-pod
+        image: "docker.io/centos/httpd"
+        ports:
+          - containerPort: 80
+
