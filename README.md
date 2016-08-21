@@ -43,7 +43,8 @@ cp ./platforms/linux/amd64/kubectl ~/.local/bin/
 
 ### Links
 
-- The contrib repo is taken from https://raw.githubusercontent.com/kubernetes/contrib
-- Thanks to [Tim Hockin](twitter.com/thockin) and [Vishnu Kannan](twitter.com/thockin) for writing that [`utils.sh`](https://github.com/kubernetes/contrib/blob/master/micro-demos/util.sh) script
+- The contrib folder is taken from https://github.com/kubernetes/contrib/
+- Thanks to [Tim Hockin](twitter.com/thockin) and [Vishnu Kannan](twitter.com/thockin) for writing that [`utils.sh`](https://github.com/kubernetes/contrib/blob/master/micro-demos/util.sh) script.
 - Doc: http://kubernetes.io/docs/getting-started-guides/vagrant/
 - Kubernetes Release Page: https://github.com/kubernetes/kubernetes/releases
+- Some of the above demos are video recorded at https://www.youtube.com/playlist?list=PLHOL8r7abo_iVEpWHnNMiBq0KajPJvlZK
